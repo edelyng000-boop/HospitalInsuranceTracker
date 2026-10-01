@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Insurance Verification Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <h1>🏥 Insurance Verification Tracker</h1>
+            <p>Hospital Patient Insurance Management</p>
+        </header>
+
+        <section class="form-section">
+
+            <h2>➕ Add Patient Verification</h2>
+
+            <form id="insuranceForm">
+
+                <div class="form-group">
+                    <label for="patientName">Patient Name</label>
+                    <input type="text"
+                           id="patientName"
+                           placeholder="Example: Jane Smith"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="insuranceCompany">Insurance Company</label>
+
+                    <select id="insuranceCompany" required>
+                        <option value="">Select Insurance</option>
+                        <option value="Aetna">Aetna</option>
+                        <option value="Cigna">Cigna</option>
+                        <option value="UnitedHealthcare">UnitedHealthcare</option>
+                        <option value="Blue Cross Blue Shield">
+                            Blue Cross Blue Shield
+                        </option>
+                        <option value="Medicare">Medicare</option>
+                        <option value="Medicaid">Medicaid</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="memberId">Member ID</label>
+                    <input type="text"
+                           id="memberId"
+                           placeholder="Example: DEMO12345"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dateOfService">Date of Service</label>
+                    <input type="date"
+                           id="dateOfService"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Verification Status</label>
+
+                    <select id="status" required>
+                        <option value="Pending">Pending</option>
+                        <option value="Verified">Verified</option>
+                        <option value="Denied">Denied</option>
+                    </select>
+                </div>
+
+                <button type="submit">
+                    + Add Verification
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="records-section">
+
+            <div class="records-heading">
+                <h2>📋 Patient Verifications</h2>
+
+                <div class="filters">
+                    <button type="button"
+                            onclick="filterRecords('All')">
+                        All
+                    </button>
+
+                    <button type="button"
+                            onclick="filterRecords('Verified')">
+                        Verified
+                    </button>
+
+                    <button type="button"
+                            onclick="filterRecords('Pending')">
+                        Pending
+                    </button>
+
+                    <button type="button"
+                            onclick="filterRecords('Denied')">
+                        Denied
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Patient</th>
+                            <th>Insurance</th>
+                            <th>Member ID</th>
+                            <th>Date of Service</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="verificationTable">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section class="summary-section">
+
+            <div class="summary-heading">
+                <h2>📊 Verification Summary</h2>
+
+                <button id="resetButton"
+                        class="reset-button"
+                        type="button">
+                    🗑 Reset All Data
+                </button>
+            </div>
+
+
+            <div class="summary-cards">
+
+                <article class="summary-card">
+                    <h3>TOTAL PATIENTS</h3>
+                    <p id="totalPatients">0</p>
+                </article>
+
+                <article class="summary-card verified-card">
+                    <h3>VERIFIED</h3>
+                    <p id="verifiedCount">0</p>
+                </article>
+
+                <article class="summary-card pending-card">
+                    <h3>PENDING</h3>
+                    <p id="pendingCount">0</p>
+                </article>
+
+                <article class="summary-card denied-card">
+                    <h3>DENIED</h3>
+                    <p id="deniedCount">0</p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            <p>
+                💾 Demo data automatically saves to your browser
+            </p>
+
+            <p>
+                Educational project — Do not enter real patient information.
+            </p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
